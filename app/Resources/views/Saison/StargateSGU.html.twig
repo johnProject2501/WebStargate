@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saison SG1{% endblock %}
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/Saison.css') }}">
+
+    <div class="siteSG1">
+        <div class="container-fluid bg-3 text-center">
+            <h3>Saison Stargate Universe</h3><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="col-sm-12" style="margin-bottom: 20px">
+                        <a href="">
+                            <img src="{{ asset('img/Universe/photo/universe_s1.jpg') }}" class="img-responsive" style="float: left" alt="Image">
+                            <div class="col-sm-4" style="float: left"><h4>Saison 1</h4></div>
+                            <div class="col-sm-8"></div>
+
+                            <div class="col-sm-12" style="margin-top: 20px; clear: both"><p>Les survivants de la base Icarus se retrouvent bloqué à bord du
+                                    vaisseau ancien 'Destiny' qui les emmene aux confins de l'univers.</p></div>
+                        </a>
+
+                    </div>
+                    <hr>
+
+                </div>
+
+
+
+                <div class="col-sm-6">
+                    <div class="col-sm-12" style="margin-bottom: 20px">
+                        <a href="">
+                            <img src="{{ asset('img/Universe/photo/universe_s2.jpg') }}" class="img-responsive" style="float: left" alt="Image">
+                            <div class="col-sm-4" style="float: left"><h4>Saison 2</h4></div>
+                            <div class="col-sm-8"></div>
+
+                            <div class="col-sm-12" style="margin-top: 20px; clear: both"><p>L'équipage du Destiny continue de lutter pour sa survie
+                                    alors qu'il découvre que le vaisseau a une mission...</p></div>
+                        </a>
+
+                    </div>
+                    <hr>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

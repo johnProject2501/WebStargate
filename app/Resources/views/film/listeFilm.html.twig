@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/Saison.css') }}">
+    <div class="siteSG1">
+        <div class="container-fluid bg-3 text-center">
+            <h3>Films</h3><br>
+                <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="col-sm-12" style="margin-bottom: 20px">
+                        <a href="">
+                            <img src="{{ asset('img/Film/film1.jpg') }}" class="img-responsive" style="float: left" alt="Image">
+                            <div class="col-sm-4" style="float: left"><h4><nobr>L'arche de vérité</nobr></h4></div>
+                            <div class="col-sm-8"></div>
+
+                            <div class="col-sm-12" style="margin-top: 20px; clear: both"><p>Tandis que les Oris préparent leur assaut final contre la Terre, Sg-1 doit voyager vers la galaxie originelle des Oris pour tenter d'éviter le massacre.</p></div>
+                        </a>
+
+                    </div>
+                </div>
+        <div class="col-sm-6">
+            <div class="col-sm-12" style="margin-bottom: 20px">
+                <a href="">
+                    <img src="{{ asset('img/Film/film2.jpg') }}" class="img-responsive" style="float: left" alt="Image">
+                    <div class="col-sm-4" style="float: left"><h4>Continuum</h4></div>
+                    <div class="col-sm-8"></div>
+
+                    <div class="col-sm-12" style="margin-top: 20px; clear: both"><p>Après la disparition de Teal'c et Vala, Sg-1 réalise que la ligne temporelle à été modifiée pour effacer le SGC.</p></div>
+                </a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

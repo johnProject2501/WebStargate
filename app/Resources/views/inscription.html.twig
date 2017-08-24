@@ -1,0 +1,12 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends ":Index:Index.html.twig" %}
+
+
+{% block body %}
+
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+
+{% endblock %}

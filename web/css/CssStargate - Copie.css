@@ -1,0 +1,67 @@
+
+h1{
+	text-align: center;
+}
+body
+{
+	background: url("photo/porte2.jpg") no-repeat  fixed;
+	background-size: cover;
+	height: 100%;
+    text-align: justify;
+    color: rgba(45,172,214,1);
+}
+#Site{
+	min-width: 1211px;
+    max-width: 1500px;
+    margin: auto;
+    width: 90%;
+    
+}
+div.menu{
+	display: flex;
+	align-items: center; 
+}
+
+
+div.accueil2{
+	text-align: center;
+	
+	
+
+}
+
+div.news{
+	display: inline-block;
+	width: 60%;
+}
+
+
+div.Concours{
+	display: inline-block;
+	float: right;
+	width: 24%;
+}
+
+span {
+	float:left;
+}
+
+
+a {
+	color : rgba(45,172,214,1);
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+input[type=search]{
+	width:15em;
+}
+  
+
+
+	
+
+
+

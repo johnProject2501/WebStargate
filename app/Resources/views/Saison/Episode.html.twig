@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+    {% block title %}{% endblock %}
+
+    {% block body %}
+        {% for episodes in episode %}
+<div style="background: lightgray" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+   <h3 style="text-align: center">{{ episodes.titre }}</h3>
+    <br>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8"> {{ episodes.resumerLong | raw }}</div>
+    <div class="col-sm-2"></div>
+</div>
+
+        {% endfor %}
+    {% endblock %}
+
+

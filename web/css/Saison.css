@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.siteSG1{
+ margin-left: 20%;
+ margin-right: 20%;
+ margin-top: 3%;
+ background-color: lightgray;
+color: black;
+}
+
+
+div.gauche{
+    display: inline-block;
+    width: 49%;
+    margin: auto;
+}
+
+div.droit{
+    display: inline-block;
+    width: 49%;
+    margin: auto;
+}
+
+img.saison1{
+    float: left;
+
+}
+div.saison1{
+    background-color: darkcyan;
+}
+img.saison{
+    float: left;
+}
+div.saison2{
+    background-color: darkred;
+}
+
+div.acteur{
+    float: left;
+    width: 146px;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-family: Arial;
+    font-size: 10px;
+    
+}
+
+ul{
+    list-style: none;
+}
+div.resumer{
+    clear: both;
+}
+
+a {
+    color : black;
+    text-decoration: none;
+}

@@ -1,0 +1,36 @@
+div.Inscription1{
+	display: block;
+	width: 245px;
+	margin:auto;
+}
+
+.button[type=text] {
+  display: inline-block;
+  
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(45,172,214,1);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #999;
+}
+.button:hover {background-color: 	rgba(43,113,217,1)}
+
+.button:active {
+  background-color: rgba(43,113,217,1);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+form input:focus{
+	background: rgba(43,113,217,1);
+	
+}
+
+input:invalid{
+	border-color: red;
+}

@@ -1,0 +1,69 @@
+@media (max-width: 1300px){
+	
+	
+	
+
+	div.accueil2{
+		display: flex;
+		flex-direction: column;
+
+		margin: auto;
+		width: 80%;
+
+	}
+
+	
+
+	body{
+		width: auto;
+	}
+	#Site{
+		min-width: auto;
+	}
+	div.accueil2{
+		
+		margin: auto;
+		width: 80%;
+	}
+
+	
+	
+	
+
+	div.news{
+	width: auto;
+	}
+	
+
+
+	
+}
+
+@media (max-width: 630px){
+	.logo {
+	width:300px;
+	height:64px;
+	}
+
+	
+
+}
+
+
+@media (max-width: 480px) {
+	
+	
+
+    nav ul#menu_horizontal li{
+	display: block;
+	
+	}
+	#Site{
+		min-width: 400px;
+	}
+
+
+	
+}
+
+
