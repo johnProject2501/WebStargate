@@ -55,7 +55,7 @@ class CompteController extends Controller
         }
 
 
-        return $this->render("inscription.html.twig",
+        return $this->render(":Compte/MonCompte.html:UpdateCompte.html.twig",
             [
                 "form"=>$form->createView()
             ]

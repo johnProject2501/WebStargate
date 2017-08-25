@@ -1,7 +1,33 @@
-    {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends ":Index:Index.html.twig" %}
 
     {% block body %}
-        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/MonCompte.css') }}">
+        <div class="siteSG1 ">
+            <div class="container-fluid well span6 ">
+                <div class="row-fluid">
+                    <div style="text-align: center"><h4>Update du compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
+                    <div class="col-sm-2">
+                        <img src="{{ asset('img/SG1/photo/sg1_s1.jpg') }}" style="max-width: 10em ;height: auto; ">
+                    </div>
+                    <div class="col-sm-8" style="text-align: center">
+                        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                                Option
+                                <span class="icon-cog icon-white"></span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('Update',{'id': app.user.id}) }}"><span class="icon-wrench"></span> Modifier le Compte</a></li>
+                                <li><a href="{{ path('Delete',{'id': app.user.id}) }}"><span class="icon-trash"></span> Supprimer le Compte</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endblock %}

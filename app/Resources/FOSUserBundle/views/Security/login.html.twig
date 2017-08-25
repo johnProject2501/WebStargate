@@ -2,7 +2,17 @@
 
 {% block body %}
 
-    <h2>Identifiez-Vous</h2>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/MonCompte.css') }}">
+<div class="siteSG1 ">
+    <div class="container-fluid well span6 ">
+        <div class="row-fluid">
+            <div style="text-align: center"><h4>Connexion<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
 
-    <div class="jumbotron">   {{ include('@FOSUser/Security/login_content.html.twig') }}</div>
+            <div  class="col-sm-12" style="text-align: center">
+                {{ include('@FOSUser/Security/login_content.html.twig') }}
+            </div>
+
+        </div>
+    </div>
+</div>
 {% endblock  %}

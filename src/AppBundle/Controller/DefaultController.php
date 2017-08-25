@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\RegistrationType;
+use AppBundle\Form\Search;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -96,4 +97,7 @@ class DefaultController extends Controller
             ]
         );
     }
+
+
+
 }
