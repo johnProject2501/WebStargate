@@ -10,7 +10,7 @@
     <div class="siteSG1 ">
         <div class="container-fluid well span6 ">
             <div class="row-fluid">
-                <div style="text-align: center"><h4>Détail du compte<hr style="background: transparent url(../img/hr.png) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
+                <div style="text-align: center"><h4>Détail du compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
                 <div class="col-sm-2">
                     <img src="{{ asset('img/SG1/photo/sg1_s1.jpg') }}" style="max-width: 10em ;height: auto; ">
                 </div>
@@ -28,8 +28,8 @@
                             <span class="icon-cog icon-white"></span><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="Update.php"><span class="icon-wrench"></span> Modifier le Compte</a></li>
-                            <li><a href="Suppresion.php"><span class="icon-trash"></span> Supprimer le Compte</a></li>
+                            <li><a href="{{ path('Update',{'id': app.user.id}) }}"><span class="icon-wrench"></span> Modifier le Compte</a></li>
+                            <li><a href="{{ path('Delete',{'id': app.user.id}) }}"><span class="icon-trash"></span> Supprimer le Compte</a></li>
                         </ul>
                     </div>
                 </div>
