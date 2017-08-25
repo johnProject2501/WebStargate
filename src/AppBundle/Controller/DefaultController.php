@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\RegistrationType;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,8 +17,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
         // replace this example code with whatever you need
-        return $this->render('Index/index.html.twig');
+        return $this->render('Index/index.html.twig',[
+
+        ]);
     }
 
 
@@ -54,6 +58,7 @@ class DefaultController extends Controller
      */
     public function FilmAction(Request $request)
     {
+
         // replace this example code with whatever you need
         return $this->render('film/listeFilm.html.twig');
     }
@@ -65,18 +70,22 @@ class DefaultController extends Controller
      * @Method(methods={"GET","POST"})
      */
     public function inscription(Request $request){
-        $post=new User();
-        $form=$this->createForm(RegistrationType::class,$post);
+        $user=new User();
+        $form=$this->createForm(RegistrationType::class,$user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
-            $em->persist($post);
+
+            $user->setEnabled('1');
+
+            $em->persist($user);
             $em->flush();
 
-            //rediriger vers la page admin
+
+            //rediriger vers la page home
             return $this->redirectToRoute("homepage");
         }
 

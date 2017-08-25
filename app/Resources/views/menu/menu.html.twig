@@ -45,10 +45,47 @@
                 </form>
 
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href={{ path('inscription.index') }}><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
-                <li><a href={{ path('connection.index') }}><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
-            </ul>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bonjour: {{ app.user.username }}</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu3" >
+                            <li><a href="{{ path('MonComtpe',{'id':app.user.id}) }}">Mon Compte</a> </li>
+                            <li><a href="">Gerer Compte Utilisateur</a> </li>
+                            <li><a href="">Crée un Concour</a> </li>
+                            <li><a href="">Crée une News</a> </li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+
+                {% elseif app.user  %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bonjour: {{ app.user.username }}</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3" >
+                                <li><a href="{{ path('MonComtpe', {'id':app.user.id}) }}">Mon Compte</a> </li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href={{ path('inscription.index') }}><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+                    <li><a href={{ path('connection.index') }}><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+                </ul>
+            {% endif %}
+
+
+
+
+
         </div>
     </nav>
 {% endblock %}

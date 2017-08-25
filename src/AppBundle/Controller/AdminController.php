@@ -21,8 +21,10 @@ class AdminController extends Controller
     public function indexAction()
     {
 
-        return $this->render(':Index:Index.html.twig');
+        return $this->redirectToRoute('homepage');
     }
+
+
 
 
 
