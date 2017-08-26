@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use AppBundle\Form\RegistrationType;
 use AppBundle\Form\UpdateCompte;
 use Doctrine\ORM\Mapping as ORM;
@@ -35,7 +36,10 @@ class CompteController extends Controller
      */
     public function SetCompteAction($id, Request $request){
 
-        $user=$this->getUser();
+        $user=$this->getDoctrine()->getRepository('AppBundle:User')->find($id);
+
+
+
         $form=$this->createForm(UpdateCompte::class,$user);
 
         $form->handleRequest($request);
@@ -43,9 +47,6 @@ class CompteController extends Controller
         if ($form->isSubmitted() && $form->isValid()){
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
-
-
-
             $em->persist($user);
             $em->flush();
 
@@ -64,12 +65,14 @@ class CompteController extends Controller
 
 
 
+
+
     /**
      * @Route("/CompteDelete/{id}", name="Delete")
      */
     public function DeleteUserAction($id){
-        //$user=$this->getDoctrine()->getRepository("AppBundle:User")->findBy(array('id' => $id));
-$user=$this->getUser();
+        $user=$this->getDoctrine()->getRepository('AppBundle:User')->find($id);
+
         $em=$this->getDoctrine()->getManager();
         $em->remove($user);
         $em->flush();
@@ -77,5 +80,8 @@ $user=$this->getUser();
         return $this->redirect($this->generateUrl('homepage'));
 
     }
+
+
+
 
 }

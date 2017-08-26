@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Compte Utilisateurs{% endblock %}
+
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/Saison.css') }}">
+
+    <div class="siteSG1">
+        <div class="container-fluid bg-3">
+            <H3 style="text-align: center">Gestion de Compte Utilisateurs</H3>
+            <table border="1" style="text-align: center;margin-left: 25%;margin-right: 25%;margin-bottom: 2%">
+                <tr>
+                    <td>ID</td>
+                    <td>Pseudo</td>
+                    <td>Email</td>
+                    <td>Validité du Compte</td>
+                    <td>Update Du compte</td>
+                    <td>Supprimer le compte</td>
+
+                </tr>
+                {% for users in user  %}
+                    <tr>
+                        <td>{{ users.id }}</td>
+                        <td>{{ users.username }}</td>
+                        <td>{{ users.email }}</td>
+                        {% if users.enabled == 1 %}
+                            <td><a href="{{ path('notEnable',{'id': users.id}) }}"><i class="fa fa-check" aria-hidden="true"></i></a> </td>
+                            {% else %}
+                                <td><a href="{{ path('enable',{'id': users.id}) }}"><i class="fa fa-times" aria-hidden="true"></i></a> </td>
+                                {% endif %}
+                        <td><a href="{{ path('Update',{'id': users.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a href="{{ path('Delete',{'id': users.id}) }}"><i class="fa fa-ban" aria-hidden="true"></i></a></td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
