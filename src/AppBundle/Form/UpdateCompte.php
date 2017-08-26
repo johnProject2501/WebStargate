@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +15,7 @@ class UpdateCompte extends AbstractType
         $builder
             ->add('username')
             ->add('email')
+            ->add('Image', FileType::class, array('data_class' => null))
             ->add("valider",SubmitType::class);
     }
 

@@ -6,6 +6,7 @@ use AppBundle\Entity\User;
 use AppBundle\Form\RegistrationType;
 use AppBundle\Form\UpdateCompte;
 use Doctrine\ORM\Mapping as ORM;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,6 +27,7 @@ class CompteController extends Controller
             array('id' => $id));
 
 
+
         return $this->render(':Compte/MonCompte.html:MonCompte.html.twig',
             [
                 'user'=>$user,
@@ -33,31 +35,57 @@ class CompteController extends Controller
     }
     /**
      * @Route("/CompteUpdate/{id}", name="Update")
+     * @Method(methods={"GET","POST"})
      */
-    public function SetCompteAction($id, Request $request){
+    public function SetCompteAction(User $user, Request $request){
 
-        $user=$this->getDoctrine()->getRepository('AppBundle:User')->find($id);
-
-
+    $id=$user->getId();
 
         $form=$this->createForm(UpdateCompte::class,$user);
 
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()){
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
+
+
+
+            $file = $user->getImage();
+
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('imageuser_directory'),
+                $fileName
+            );
+
+            $user->setImage($fileName);
+
             $em->persist($user);
             $em->flush();
 
 
-            //rediriger vers la page home
-            return $this->redirectToRoute("homepage");
+            $userTest=$this->getUser()->getRoles();
+
+
+            //rediriger vers la page MonCompte
+            if ($userTest=="ROLE_USER"){
+                return $this->redirectToRoute("MonComtpe",array(
+                    'id' => $user->getId()));
+            }
+            elseif ($userTest=="ROLE_ADMIN"){
+                return $this->redirectToRoute("GererCompteUser");
+            }
+
+
         }
 
 
         return $this->render(":Compte/MonCompte.html:UpdateCompte.html.twig",
             [
+                "user"=>$user,
                 "form"=>$form->createView()
             ]
         );

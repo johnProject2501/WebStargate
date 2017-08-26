@@ -12,7 +12,12 @@
             <div class="row-fluid">
                 <div style="text-align: center"><h4>Détail du compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
                 <div class="col-sm-2">
-                    <img src="{{ asset('img/SG1/photo/sg1_s1.jpg') }}" style="max-width: 10em ;height: auto; ">
+                    {% if app.user.image is  empty  %}
+                        <img src="{{ asset('img/user/noimage.jpg') }}" style="max-width: 10em ;height: auto; ">
+                        {% else %}
+                            <img src="{{ img_folder }}/{{app.user.image}}" style="max-width: 10em ;height: auto; ">
+
+                            {% endif %}
                 </div>
 
                 <div class="col-sm-8" style="text-align: center">

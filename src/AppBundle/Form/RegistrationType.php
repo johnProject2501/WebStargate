@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,6 +16,7 @@ class RegistrationType extends AbstractType
             ->add('username')
             ->add('plainPassword')
             ->add('email')
+            ->add('Image', FileType::class, array('label' => 'Image (JPEG file)'))
             ->add("valider",SubmitType::class);
     }
 

@@ -16,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser
 {
@@ -27,6 +28,28 @@ class User extends BaseUser
      */
     protected $id;
 
+
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/jpg","image/png"})
+     */
+    private $Image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->Image;
+    }
+
+    /**
+     * @param mixed $Image
+     */
+    public function setImage($Image)
+    {
+        $this->Image = $Image;
+    }
 
 
 }

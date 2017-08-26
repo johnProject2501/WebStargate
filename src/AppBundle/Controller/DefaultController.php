@@ -79,6 +79,15 @@ class DefaultController extends Controller
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
 
+
+            $file = $user->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('imageuser_directory'),
+                $fileName
+            );
+
+            $user->setImage($fileName);
             $user->setEnabled('1');
 
             $em->persist($user);
