@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f202ccb6-894b-48b9-acde-a8dc9499910f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Compte/MonCompte.html/UpdateCompte.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Compte/MonCompte.html/UpdateCompte.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/CompteController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/CompteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/UpdateCompte.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/UpdateCompte.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -338,7 +335,7 @@
       <workItem from="1503575971598" duration="3804000" />
       <workItem from="1503640615008" duration="2982000" />
       <workItem from="1503648801923" duration="35967000" />
-      <workItem from="1503835224015" duration="2278000" />
+      <workItem from="1503835224015" duration="2288000" />
     </task>
     <task id="LOCAL-00001" summary="V1.2">
       <created>1503664159415</created>
@@ -382,11 +379,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503766754841</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="V1.5">
+      <created>1503837626073</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1503837626073</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67225000" />
+    <option name="totallyTimeSpent" value="67235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="948" extended-state="6" />
@@ -577,6 +581,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="197" column="16" lean-forward="false" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
