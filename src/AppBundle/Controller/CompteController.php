@@ -39,21 +39,26 @@ class CompteController extends Controller
      */
     public function SetCompteAction(User $user, Request $request){
 
-    $id=$user->getId();
+        $image=$user->getImage();
 
         $form=$this->createForm(UpdateCompte::class,$user);
+
 
         $form->handleRequest($request);
 
 
 
-        if ($form->isSubmitted() && $form->isValid()){
+
+        $file = $user->getImage();
+
+        if ($form->isSubmitted() && $form->isValid() && $file!=null){
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
 
 
 
             $file = $user->getImage();
+
 
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move(
@@ -82,6 +87,30 @@ class CompteController extends Controller
 
         }
 
+        elseif($form->isSubmitted() && $form->isValid() && $file == null){
+            //Persister l'objet
+            $em=$this->getDoctrine()->getManager();
+
+
+            $em->persist($user);
+            $em->flush();
+
+
+            $userTest=$this->getUser()->getRoles();
+
+
+            //rediriger vers la page MonCompte
+            if ($userTest=="ROLE_ADMIN"){
+                return $this->redirectToRoute("GererCompteUser");
+            }
+            elseif ($userTest=="ROLE_USER"){
+                return $this->redirectToRoute("MonComtpe",array(
+                    'id' => $user->getId()));
+            }
+
+
+
+        }
 
         return $this->render(":Compte/MonCompte.html:UpdateCompte.html.twig",
             [

@@ -8,10 +8,10 @@
                 <div class="row-fluid">
                     <div style="text-align: center"><h4>Update du compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
                     <div class="col-sm-4">
-                        {% if app.user.image is  empty  %}
+                        {% if user.image is  empty  %}
                             <img src="{{ asset('img/user/noimage.jpg') }}" style="max-width: 10em ;height: auto; ">
                         {% else %}
-                            <img src="{{ img_folder }}/{{app.user.image}}" style="max-width: 10em ;height: auto; ">
+                            <img src="{{ img_folder }}/{{user.image}}" style="max-width: 10em ;height: auto; ">
 
                         {% endif %}
                     </div>

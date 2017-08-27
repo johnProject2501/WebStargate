@@ -15,7 +15,9 @@ class UpdateCompte extends AbstractType
         $builder
             ->add('username')
             ->add('email')
-            ->add('Image', FileType::class, array('data_class' => null))
+            ->add('Image', FileType::class, array('label' => 'Votre photo : ',
+                'required' => false,
+                    'data_class' => null))
             ->add("valider",SubmitType::class);
     }
 
