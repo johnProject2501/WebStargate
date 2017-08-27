@@ -1,28 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Compte de : {{ app.user.username }}{% endblock %}
+{% block title %}Mon Compte{% endblock %}
 
 
 {% block body %}
-
+    
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/MonCompte.css') }}">
+    {% for User in user %}
     <div class="siteSG1 ">
         <div class="container-fluid well span6 ">
             <div class="row-fluid">
                 <div style="text-align: center"><h4>Détail du compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
                 <div class="col-sm-2">
-                    {% if app.user.image is  empty  %}
+                    {% if User.image is  empty  %}
                         <img src="{{ asset('img/user/noimage.jpg') }}" style="max-width: 10em ;height: auto; ">
                         {% else %}
-                            <img src="{{ img_folder }}/{{app.user.image}}" style="max-width: 10em ;height: auto; ">
+                            <img src="{{ img_folder }}/{{User.image}}" style="max-width: 10em ;height: auto; ">
 
                             {% endif %}
                 </div>
 
                 <div class="col-sm-8" style="text-align: center">
-                    <h5>Pseudo:{{ app.user.username}}</h5>
-                    <h6>Email: {{ app.user.email }}</h6>
+                    <h5>Pseudo:{{ User.username}}</h5>
+                    <h6>Email: {{ User.email }}</h6>
 
                 </div>
 
@@ -33,12 +34,13 @@
                             <span class="icon-cog icon-white"></span><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('Update',{'id': app.user.id}) }}"><span class="icon-wrench"></span> Modifier le Compte</a></li>
-                            <li><a href="{{ path('Delete',{'id': app.user.id}) }}"><span class="icon-trash"></span> Supprimer le Compte</a></li>
+                            <li><a href="{{ path('Update',{'id': User.id}) }}"><span class="icon-wrench"></span> Modifier le Compte</a></li>
+                            <li><a href="{{ path('Delete',{'id': User.id}) }}"><span class="icon-trash"></span> Supprimer le Compte</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        {% endfor %}
 {% endblock %}

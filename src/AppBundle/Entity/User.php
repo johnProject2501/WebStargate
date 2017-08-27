@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping\JoinColumn;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -28,6 +29,12 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\Column(type="integer",nullable=true)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Concours")
+     * @JoinColumn(name="id_concours", referencedColumnName="id")
+     */
+    private $id_concours;
 
     /**
      * @ORM\Column(type="string")

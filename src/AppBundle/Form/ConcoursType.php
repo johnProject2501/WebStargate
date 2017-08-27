@@ -5,29 +5,31 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UpdateCompte extends AbstractType
+class ConcoursType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('email')
-            ->add('Image', FileType::class, array("data_class"=>null))
+            ->add('file', FileType::class, array('label' => 'Photo concours'))
+            ->add('titre')
+            ->add('text',TextareaType::class)
             ->add("valider",SubmitType::class);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
+            'data_class' => 'AppBundle\Entity\Concours'
         ));
     }
 
     public function getBlockPrefix()
     {
-        return 'app_bundle_update_compte';
+        return 'app_bundle_concours_type';
     }
 }

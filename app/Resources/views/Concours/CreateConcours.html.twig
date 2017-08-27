@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block title %}Création d'un concours{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/divSG1.css') }}">
+    <div class="siteSG1">
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

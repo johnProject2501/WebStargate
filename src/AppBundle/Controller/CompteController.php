@@ -60,6 +60,7 @@ class CompteController extends Controller
             $file = $user->getImage();
 
 
+
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move(
                 $this->getParameter('imageuser_directory'),

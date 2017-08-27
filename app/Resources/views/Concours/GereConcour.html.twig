@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion Concours{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/divSG1.css') }}">
+    <div class="siteSG1" style="padding-bottom: 5%" >
+        <h1 style="text-align: center">Gestion des concours</h1>
+
+        <div class="col-sm-12" style="text-align: center;margin-bottom: 5%"><a href="{{ path('CreateConcours') }}" type="button" class="btn btn-success">Création de concours</a></div>
+
+
+
+        {% if concour != null %}
+            <table border="1" style="text-align: center;margin-left: 25%;margin-right: 25%;margin-bottom: 2%">
+                <tr>
+                    <td>Photo</td>
+                    <td>ID</td>
+                    <td>Titre du Concours</td>
+                    <td>Detail</td>
+                    <td>Supprimer le Concours</td>
+
+                </tr>
+                {% for concours in concour  %}
+                    <tr>
+                        <td><img src="img/concours/{{concours.file}}" style="max-width: 10em ;height: auto; "></td>
+                        <td>{{ concours.id }}</td>
+                        <td>{{ concours.titre }}</td>
+                        <td><a href="{{ path('concoursDetail',{'id': concours.id}) }}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+                        <td><a href="{{ path('concoursDelete',{'id': concours.id}) }}"><i class="fa fa-ban" aria-hidden="true"></i></a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        {% else %}
+        <div class="col-sm-12" style="text-align: center"><p>Aucun Concours actuellement</p><p><button href="" type="button" class="btn btn-success">Création de concours</button></p></div>
+
+        {% endif %}
+
+
+
+    </div>
+{% endblock %}

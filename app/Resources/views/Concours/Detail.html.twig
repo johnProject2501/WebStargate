@@ -1,0 +1,28 @@
+{% extends'base.html.twig' %}
+{% block title %}Detail Concours {% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/divSG1.css') }}">
+<div class="siteSG1">
+    <h1 style="text-align: center">{{ concour.titre }}</h1>
+
+<p>Photo : <img src="../img/concours/{{concour.file}}" style="max-width: 10em ;height: auto; "> </p>
+    <p>Liste utilisateur inscrit:</p>
+
+    <p>
+        {% if user != null %}
+        {% for Users in user %}
+             <a href="{{ path('MonComtpe',{'id':Users.id}) }}"> {{ Users.username }} </a>,
+        {% endfor %}
+        {% else %}
+        Aucun inscrit
+        {% endif %}
+
+    </p>
+
+    <h4 style="text-align: center">Description</h4>
+
+    <p>{{ concour.text }}</p>
+</div>
+{% endblock %}
+
