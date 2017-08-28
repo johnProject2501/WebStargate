@@ -27,19 +27,27 @@ class Concours
     /**
      * @ORM\Column(type="string")
      * @Assert\File(mimeTypes={ "image/jpeg", "image/jpg","image/png"})
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Update image obligatoire")
      */
     private $File;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message=" Titre obligatoire")
      */
     private $titre;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message=" Texte Court obligatoire")
      */
     private $Text;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User",mappedBy="concour")
+     */
+    private $user;
+
 
     /**
      * @return mixed
@@ -48,6 +56,8 @@ class Concours
     {
         return $this->id;
     }
+
+
 
     /**
      * @param mixed $id
@@ -106,4 +116,48 @@ class Concours
     }
 
 
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Concours
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

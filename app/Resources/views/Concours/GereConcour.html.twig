@@ -23,7 +23,7 @@
                 </tr>
                 {% for concours in concour  %}
                     <tr>
-                        <td><img src="img/concours/{{concours.file}}" style="max-width: 10em ;height: auto; "></td>
+                        <td><img src="../img/concours/{{concours.file}}" style="max-width: 10em ;height: auto; "></td>
                         <td>{{ concours.id }}</td>
                         <td>{{ concours.titre }}</td>
                         <td><a href="{{ path('concoursDetail',{'id': concours.id}) }}"><i class="fa fa-search" aria-hidden="true"></i></a></td>

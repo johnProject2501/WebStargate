@@ -22,6 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User extends BaseUser
 {
 
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -30,17 +31,16 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="integer",nullable=true)
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Concours")
-     * @JoinColumn(name="id_concours", referencedColumnName="id")
-     */
-    private $id_concours;
-
-    /**
      * @ORM\Column(type="string")
      * @Assert\File(mimeTypes={ "image/jpeg", "image/jpg","image/png"})
+     * @Assert\NotBlank(message="Update image obligatoire")
      */
     private $Image;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Concours",inversedBy="user")
+     */
+    private $concour;
 
     /**
      * @return mixed
@@ -59,4 +59,38 @@ class User extends BaseUser
     }
 
 
+
+    /**
+     * Add concour
+     *
+     * @param \AppBundle\Entity\Concours $concour
+     *
+     * @return User
+     */
+    public function addConcour(\AppBundle\Entity\Concours $concour)
+    {
+        $this->concour[] = $concour;
+
+        return $this;
+    }
+
+    /**
+     * Remove concour
+     *
+     * @param \AppBundle\Entity\Concours $concour
+     */
+    public function removeConcour(\AppBundle\Entity\Concours $concour)
+    {
+        $this->concour->removeElement($concour);
+    }
+
+    /**
+     * Get concour
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getConcour()
+    {
+        return $this->concour;
+    }
 }

@@ -17,16 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends Controller
 {
     /**
-     * @Route("/", name="connection.index")
-     *
-     */
-    public function indexAction()
-    {
-
-        return $this->redirectToRoute('homepage');
-    }
-
-    /**
      * @Route("/GereCompteUser/", name="GererCompteUser")
      */
     public function GererUserAction(){
@@ -76,7 +66,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("GererConcours", name="GererConcours")
+     * @Route("/GererConcours", name="GererConcours")
      */
     public function ConcoursAction(){
 
@@ -106,23 +96,29 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("ConcoursDetail/{id}", name="concoursDetail")
+     * @Route("/ConcoursDetail/{id}", name="concoursDetail")
      */
-    public function DetailConcourAction($id){
-        $concours=$this->getDoctrine()->getRepository('AppBundle:Concours')->find($id);
-        $user=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
-            array('id_concours' => $id));;
+    public function DetailConcourAction(Concours $concours){
+        $concours=$this->getDoctrine()->getRepository('AppBundle:Concours')->find($concours);
+
+        $users=$concours->getUser();
+
+
+
+
+
 
 
         return $this->render(':Concours:Detail.html.twig',[
             'concour'=>$concours,
-            'user'=>$user
+            'users'=>$users
+
         ]);
 
     }
 
     /**
-     * @Route("CreeUnConcour", name="CreateConcours")
+     * @Route("/CreeUnConcour", name="CreateConcours")
      */
     public  function CreateConcoursAction(Request $request){
         $concours=new Concours();

@@ -21,9 +21,23 @@
 
 
             <div class="col-sm-6">
-                <div class="col-sm-12">
-                    <figure><a href="concours1.html"><img src="{{ asset('img/concours-sgu-s1-hp.jpg') }}" alt="Concours"></a>
-                    </figure></div>
+
+                   {% for Concours in concour %}
+                       {% if app.user %}
+                       <div class="col-sm-12">
+                            <figure>
+                                <a href="{{ path('InscriptionConcours',{'id':Concours.id}) }}"><img src="../img/concours/{{Concours.file}}"></a>
+                            </figure>
+                       </div>
+                           {% else %}
+                               <div class="col-sm-12">
+                                   <figure>
+                                       <a href="{{ path('Login')}}">Participez à nos concours</a>
+                                   </figure>
+                               </div>
+                    {% endif %}
+
+                    {% endfor %}
             </div>
         </div>
     </div>

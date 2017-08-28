@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Concours{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/divSG1.css') }}">
+
+    <div style="padding-bottom: 5%" class="siteSG1">
+        <h1 style="text-align: center">{{ concour.titre }}</h1><br>
+        <p style="text-align: center"><img  src="../../../img/concours/{{concour.file}}"></p>
+        <br><br>
+        <p>Description: </p><p>{{ concour.text }}</p>
+        <div class="col-sm-12" style="text-align: center;margin-bottom: 5%">
+
+            {% if variable == true  %}
+            <p>Vous êtes deja inscrit</p>
+            {% elseif variable == false %}
+                <a href="{{ path('InscriptionUserConcours',{'id':app.user.id,'idConcour':concour.id}) }}" type="button" class="btn btn-success">S'inscrire au concour</a>
+
+                {% endif %}
+
+        </div>
+
+    </div>
+{% endblock %}

@@ -6,12 +6,12 @@
 <div class="siteSG1">
     <h1 style="text-align: center">{{ concour.titre }}</h1>
 
-<p>Photo : <img src="../img/concours/{{concour.file}}" style="max-width: 10em ;height: auto; "> </p>
+<p>Photo : <img src="../../img/concours/{{concour.file}}" style="max-width: 10em ;height: auto; "> </p>
     <p>Liste utilisateur inscrit:</p>
 
     <p>
-        {% if user != null %}
-        {% for Users in user %}
+        {% if users != null %}
+        {% for Users in users %}
              <a href="{{ path('MonComtpe',{'id':Users.id}) }}"> {{ Users.username }} </a>,
         {% endfor %}
         {% else %}
@@ -20,9 +20,13 @@
 
     </p>
 
-    <h4 style="text-align: center">Description</h4>
+    <h4 style="text-align: center">Description Court</h4>
 
     <p>{{ concour.text }}</p>
+
+    <br>
+
+
 </div>
 {% endblock %}
 
