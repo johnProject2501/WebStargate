@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block title %}Update Concours{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/MonCompte.css') }}">
+    <div class="siteSG1 ">
+        <link rel="stylesheet" href="{{ asset('css/divSG1.css') }}">
+        <div style="text-align: center">
+            <p>Photo news: <img src="../../img/concours/{{concours.file}}" style="max-width: 10em ;height: auto; "> </p>
+        </div>
+
+        <div class="siteSG1">
+            {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

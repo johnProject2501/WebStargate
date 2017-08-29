@@ -1,0 +1,20 @@
+{% extends'base.html.twig' %}
+{% block title %}Detail Concours {% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/divSG1.css') }}">
+    <div class="siteSG1">
+        <h1 style="text-align: center">{{ news.titre }}</h1>
+
+        <p>Photo : <img src="../../img/news/{{news.file}}" style="max-width: 10em ;height: auto; "> </p>
+
+
+        <h4 style="text-align: center">Article:</h4>
+
+        <p>{{ news.text | raw }}</p>
+
+        <br>
+
+
+    </div>
+{% endblock %}
