@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Concours;
 use AppBundle\Entity\User;
 use AppBundle\Form\ConcoursType;
+use AppBundle\Form\NewsType;
 use AppBundle\Form\RegistrationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -162,6 +163,83 @@ class AdminController extends Controller
         }
         return $this->render("Concours/CreateConcours.html.twig",
             [
+                "form"=>$form->createView()
+            ]
+        );
+    }
+
+
+    /**
+     * @Route("/ConcourUpdate/{id}", name="UpdateConcour")
+     * @Method(methods={"GET","POST"})
+     */
+    public function SetCompteAction(Concours $concours, Request $request){
+
+
+
+        $form=$this->createForm(ConcoursType::class,$concours);
+
+
+        $form->handleRequest($request);
+
+
+
+
+        $file = $concours->getFile();
+
+        if ($form->isSubmitted() && $form->isValid() && $file!=null){
+            //Persister l'objet
+            $em=$this->getDoctrine()->getManager();
+
+
+
+            $file = $concours->getFile();
+
+
+
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('imageconcours_directory'),
+                $fileName
+            );
+
+            $concours->setFile($fileName);
+
+            $em->persist($concours);
+            $em->flush();
+
+
+
+
+
+            //rediriger vers la page GererNews
+
+            return $this->redirectToRoute("GererConcours");
+
+
+
+        }
+
+        elseif($form->isSubmitted() && $form->isValid() && $file == null){
+            //Persister l'objet
+            $em=$this->getDoctrine()->getManager();
+
+
+            $em->persist($concours);
+            $em->flush();
+
+
+
+            return $this->redirectToRoute("GererConcours");
+
+
+
+
+        }
+
+        return $this->render("Concours/UpdateConcour.html.twig",
+            [
+                "concours"=>$concours,
                 "form"=>$form->createView()
             ]
         );

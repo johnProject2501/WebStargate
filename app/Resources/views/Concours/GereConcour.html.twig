@@ -17,6 +17,7 @@
                     <td>Photo</td>
                     <td>ID</td>
                     <td>Titre du Concours</td>
+                    <td>Update</td>
                     <td>Detail</td>
                     <td>Supprimer le Concours</td>
 
@@ -26,6 +27,7 @@
                         <td><img src="../img/concours/{{concours.file}}" style="max-width: 10em ;height: auto; "></td>
                         <td>{{ concours.id }}</td>
                         <td>{{ concours.titre }}</td>
+                        <td><a href="{{ path('UpdateConcour',{'id': concours.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a href="{{ path('concoursDetail',{'id': concours.id}) }}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
                         <td><a href="{{ path('concoursDelete',{'id': concours.id}) }}"><i class="fa fa-ban" aria-hidden="true"></i></a></td>
                     </tr>

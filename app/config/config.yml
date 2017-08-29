@@ -9,6 +9,7 @@ parameters:
     locale: fr
     imageuser_directory: '%kernel.project_dir%/web/img/user'
     imageconcours_directory: '%kernel.project_dir%/web/img/concours'
+    imagenews_directory: '%kernel.project_dir%/web/img/news'
 
 framework:
     #esi: ~

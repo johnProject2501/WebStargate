@@ -14,7 +14,7 @@ class ConcoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file', FileType::class, array('label' => 'Photo concours'))
+            ->add('file', FileType::class, array('label' => 'Photo concours',"data_class"=>null))
             ->add('titre')
             ->add('text',TextareaType::class)
             ->add("valider",SubmitType::class);

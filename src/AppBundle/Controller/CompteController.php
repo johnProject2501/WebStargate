@@ -33,13 +33,14 @@ class CompteController extends Controller
                 'user'=>$user,
             ]);
     }
+
     /**
      * @Route("/CompteUpdate/{id}", name="Update")
      * @Method(methods={"GET","POST"})
      */
     public function SetCompteAction(User $user, Request $request){
 
-        $image=$user->getImage();
+
 
         $form=$this->createForm(UpdateCompte::class,$user);
 
