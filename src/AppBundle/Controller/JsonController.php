@@ -54,6 +54,35 @@ class JsonController extends Controller
 
 
 
+    /**
+     * @Route("/Film/Json/{id}", name="Film.json")
+     * @Method("GET")
+     */
+    public function jsonFilmAction($id)
+    {
+        $categorias = $this->getDoctrine()
+            ->getRepository('AppBundle:Episodes')
+            ->findBy(array('id' => $id));
+
+
+        $data = null ;
+
+
+        foreach($categorias as $categoria)
+        {
+            $sring = str_replace ('<br>',' ',$categoria->getResumerLong());
+            $data = [
+                'id' => $categoria->getId(),
+                'idOfSaison' =>$categoria->getIdOfSaison(),
+                'titre'=>$categoria->getTitre(),
+                'resumerCourt'=>$categoria->getResumerCourt(),
+                'resumerLong'=>$sring,
+                'photo'=>$categoria->getPhoto()
+            ];
+        }
+
+        return new JsonResponse($data);
+    }
 
 
 
