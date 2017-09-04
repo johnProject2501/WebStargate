@@ -5,3 +5,20 @@ div.siteSG1{
     background-color: lightgray;
     color: black;
 }
+
+
+
+.hrbleu{
+    width: 350px;
+    height: 10px;
+    border: none;
+}
+
+@media (max-width: 890px){
+    .hrbleu{
+        display: none;
+    }
+
+
+
+}

@@ -25,7 +25,7 @@ class RegistrationType extends AbstractType
                 'second_options' => array('label' => 'Repeat Password'),
             ))
             ->add('email')
-            ->add('Image', FileType::class, array('label' => 'Image (JPEG file)'))
+            ->add('Image', FileType::class, array('label' => 'Image de Profile'))
             ->add("valider",SubmitType::class);
     }
 

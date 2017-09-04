@@ -8,10 +8,8 @@
         <div class="container-fluid well span6 ">
             <div class="row-fluid">
                 <div style="text-align: center"><h4>Création de compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
-                    <div class="col-sm-4">
-                        <img src="{{ asset('img/SG1/photo/sg1_s1.jpg') }}" style="max-width: 10em ;height: auto; ">
-                    </div>
-                <div class="col-sm-8" style="text-align: center">
+
+                <div class="col-sm-12" style="text-align: center">
                     {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
                     {{ form_widget(form) }}
                     {{ form_end(form) }}
