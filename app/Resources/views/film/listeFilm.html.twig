@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Film{% endblock %}
 {% block body %}
     <link rel="stylesheet" href="{{ asset('css/Saison.css') }}">
     <div class="siteSG1">
@@ -9,7 +9,7 @@
 
                 <div class="col-sm-6">
                     <div class="col-sm-12" style="margin-bottom: 20px">
-                        <a href="">
+                        <a href="{{ path('Episode', {'id': 35}) }}">
                             <img src="{{ asset('img/Film/film1.jpg') }}" class="img-responsive" style="float: left" alt="Image">
                             <div class="col-sm-4" style="float: left"><h4><nobr>L'arche de vérité</nobr></h4></div>
                             <div class="col-sm-8"></div>
@@ -21,7 +21,7 @@
                 </div>
         <div class="col-sm-6">
             <div class="col-sm-12" style="margin-bottom: 20px">
-                <a href="">
+                <a href="{{ path('Episode', {'id': 36}) }}">
                     <img src="{{ asset('img/Film/film2.jpg') }}" class="img-responsive" style="float: left" alt="Image">
                     <div class="col-sm-4" style="float: left"><h4>Continuum</h4></div>
                     <div class="col-sm-8"></div>

@@ -27,10 +27,12 @@ class ConnectUser extends Controller
     {
         $concours=$this->getDoctrine()->getRepository('AppBundle:Concours')->findAll();
 
+        $news=$this->getDoctrine()->getRepository('AppBundle:News')->findAll();
 
         // replace this example code with whatever you need
         return $this->render(':Index:Index.html.twig',[
             'concour'=>$concours,
+            'news'=>$news,
         ]);
     }
 
