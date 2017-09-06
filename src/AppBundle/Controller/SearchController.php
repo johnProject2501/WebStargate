@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SearchController extends Controller
 {
     /**
-     * @Route("search/",name="search")
+     * @Route("/search",name="search")
      */
     public function listAction(Request $request)
     {
@@ -27,19 +27,18 @@ class SearchController extends Controller
 
             $articleSearch  = $form->getData();
 
-
             $finder = $this->container->get('fos_elastica.finder.app.episodes');
 
             $results = $finder->find($articleSearch->getTitle());
 
 
 
-            return $this->render("infoTest.html.twig",array('results' => $results));
+            return $this->render("Recherche/ResultatRecherche.html.twig",array('results' => $results));
 
 
 
         }
-        return $this->render("Liste.html.twig",
+        return $this->render("Recherche/FormRecherche.html.twig",
             [
                 "form"=>$form->createView()
             ]

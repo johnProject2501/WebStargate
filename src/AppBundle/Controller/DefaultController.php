@@ -24,6 +24,7 @@ class DefaultController extends Controller
         $news=$this->getDoctrine()->getRepository('AppBundle:News')->findAll();
 
 
+
         // replace this example code with whatever you need
         return $this->render(':Index:Index.html.twig',[
             'concour'=>$concours,
