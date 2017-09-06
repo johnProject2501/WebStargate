@@ -13,10 +13,11 @@ fos_elastica:
     clients:
         default: { host: '%elastic_host%', port: '%elastic_port%' }
     indexes:
-        racine:
+        app:
+            finder: ~
             client: default
             types:
-                article:
+                episodes:
                     mappings:
                         id:
                             type: integer

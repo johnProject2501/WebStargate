@@ -33,7 +33,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string")
      * @Assert\File(mimeTypes={ "image/jpeg", "image/jpg","image/png"})
-     * @Assert\NotBlank(message="Update image obligatoire")
+     * @Assert\NotBlank(message="Image obligatoire")
      */
     private $Image;
 
