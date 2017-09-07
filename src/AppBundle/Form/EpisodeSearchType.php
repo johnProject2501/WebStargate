@@ -14,7 +14,7 @@ class EpisodeSearchType extends AbstractType
     {
 
         $builder
-            ->add('title', TextType::class, array('attr' => array('placeholder' => 'Recherche'),'label'=>' '))
+            ->add('title', TextType::class, array('attr' => array('placeholder' => 'Recherche'),'label'=>" "))
             ->add("valider",SubmitType::class);
     }
 

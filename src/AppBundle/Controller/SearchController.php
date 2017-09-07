@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SearchController extends Controller
 {
     /**
-     * @Route("/search",name="search")
+     * @Route("/search/",name="search")
      */
     public function listAction(Request $request)
     {
