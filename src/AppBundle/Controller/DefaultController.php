@@ -98,37 +98,127 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()){
             //Persister l'objet
-            $em=$this->getDoctrine()->getManager();
+
+            $Alluserpseudo=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
+                array('username' => $user->getUsernameCanonical()));
+            $Alluseremail=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
+                array('email' => $user->getEmail()));
+
+            if (!empty($Alluserpseudo || $Alluseremail )){
 
 
-            $file = $user->getImage();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('imageuser_directory'),
-                $fileName
-            );
 
-            $user->setImage($fileName);
-            $user->setEnabled('1');
+                return $this->redirectToRoute("inscriptionError.index",[
 
-            $em->persist($user);
-            $em->flush();
+                ]);
+            }
+            else{
+
+                $em=$this->getDoctrine()->getManager();
 
 
-            //rediriger vers la page home
-            return $this->redirectToRoute("homepage");
+
+
+                $file = $user->getImage();
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $this->getParameter('imageuser_directory'),
+                    $fileName
+                );
+
+                $user->setImage($fileName);
+                $user->setEnabled('1');
+
+                $em->persist($user);
+                $em->flush();
+
+
+                //rediriger vers la page home
+                return $this->redirectToRoute("homepage");
+            }
         }
 
 
-        return $this->render("inscription.html.twig",
+
+
+        return $this->render(":Inscription:inscription.html.twig",
             [
-                "form"=>$form->createView()
+                "form"=>$form->createView(),
+
             ]
         );
     }
 
 
+
+
+    /**
+     * @Route("/inscriptions", name="inscriptionError.index")
+     * @Method(methods={"GET","POST"})
+     */
+    public function inscriptionError(Request $request){
+        $user=new User();
+        $form=$this->createForm(RegistrationType::class,$user);
+
+        $form->handleRequest($request);
+
+
+
+        if ($form->isSubmitted() && $form->isValid()){
+            //Persister l'objet
+
+            $Alluser=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
+                array('username' => $user->getUsernameCanonical()));
+            $Alluseremail=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
+                array('email' => $user->getEmail()));
+
+            if (!empty($Alluser || $Alluseremail)){
+
+
+
+                return $this->redirectToRoute("inscriptionError.index",[
+
+                ]);
+            }
+            else{
+
+                $em=$this->getDoctrine()->getManager();
+
+
+
+
+                $file = $user->getImage();
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $this->getParameter('imageuser_directory'),
+                    $fileName
+                );
+
+                $user->setImage($fileName);
+                $user->setEnabled('1');
+
+                $em->persist($user);
+                $em->flush();
+
+
+                //rediriger vers la page home
+                return $this->redirectToRoute("homepage");
+            }
+        }
+
+
+
+
+        return $this->render(":Inscription:inscriptionError.html.twig",
+            [
+                "form"=>$form->createView(),
+
+            ]
+        );
+    }
 
 }

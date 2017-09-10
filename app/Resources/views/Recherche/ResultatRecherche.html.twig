@@ -5,20 +5,27 @@
     <div class="container">
         <div class="row">
             <h2  style="text-align: center; background: lightgray;margin-bottom: -0.2%">Résultat de la recherche</h2>
-    {% for result in results %}
+            {% if results != null %}
+                {% for result in results %}
+                    <a href="{{ path('Episode', {'id': result.id}) }}">
+                        <div style="background: lightgray;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+                            <div class="box">
+                                <div class="info">
+                                    <h4  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{ result.titre }}</h4>
+                                    <img   src="{{ asset(result.photo) }}" class="img-responsive; col-sm-4" alt="Image" style="width: 15%; margin-bottom: 30px">
+                                    <p class="col-sm-8">{{ result.resumerCourt }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+                {% else %}
 
-        <a href="{{ path('Episode', {'id': result.id}) }}">
-            <div style="background: lightgray;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-                <div class="box">
-                    <div class="info">
-                        <h4  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{ result.titre }}</h4>
-                        <img   src="{{ asset(result.photo) }}" class="img-responsive; col-sm-4" alt="Image" style="width: 15%; margin-bottom: 30px">
-                        <p class="col-sm-8">{{ result.resumerCourt }}</p>
+                    <div style="text-align: center; background: lightgray;padding-top: 2%">
+
+                        <p>Aucun Résultat à la recherche</p>
                     </div>
-                </div>
-            </div>
-        </a>
-    {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

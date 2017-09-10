@@ -1,0 +1,26 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends ":Index:Index.html.twig" %}
+
+
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/MonCompte.css') }}">
+    <div class="siteSG1 ">
+        <div class="container-fluid well span6 ">
+            <div class="row-fluid">
+                <div style="text-align: center"><h4>Création de compte<hr style="background: transparent url({{ asset('img/hr.png') }}) no-repeat; width: 350px; height: 10px; border: none;"></h4></div>
+
+                <div class="col-sm-12" style="text-align: center">
+                    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                    <br>
+                    {{ form_widget(form) }}
+                    <br>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+
+            <div id="messagePseudo" style="color: red;text-align: center"></div>
+        </div>
+    </div>
+
+{% endblock %}

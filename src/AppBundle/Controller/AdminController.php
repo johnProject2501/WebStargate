@@ -20,7 +20,8 @@ class AdminController extends Controller
     /**
      * @Route("/GereCompteUser/", name="GererCompteUser")
      */
-    public function GererUserAction(){
+    public function GererUserAction()//cherche la liste des utilisateur inscrit
+    {
         $user=$this->getDoctrine()->getRepository('AppBundle:User')->findAll();
 
         return $this->render('Compte/MonCompte.html/GererCompte.html.twig',[
@@ -31,7 +32,8 @@ class AdminController extends Controller
     /**
      *@Route("/GereCompteUser/enable{id}", name="enable")
      */
-    public function enableAction($id){
+    public function enableAction($id)//Permet d'activier un compte
+    {
 
         $user=$this->getDoctrine()->getRepository('AppBundle:User')->find($id);
 
@@ -51,7 +53,8 @@ class AdminController extends Controller
     /**
      *@Route("/GereCompteUser/notEnable{id}", name="notEnable")
      */
-    public function notEnableAction($id){
+    public function notEnableAction($id)//Permet de desactiver un compte
+    {
 
         $user=$this->getDoctrine()->getRepository('AppBundle:User')->find($id);
 
@@ -69,7 +72,8 @@ class AdminController extends Controller
     /**
      * @Route("/GererConcours", name="GererConcours")
      */
-    public function ConcoursAction(){
+    public function ConcoursAction()//Affiche la liste des concours
+    {
 
         $concours=$this->getDoctrine()->getRepository('AppBundle:Concours')->findAll();
 
@@ -85,7 +89,8 @@ class AdminController extends Controller
     /**
      * @Route("/ConcoursDelete/{id}", name="concoursDelete")
      */
-    public function DeleteConcoursAction($id){
+    public function DeleteConcoursAction($id)//supprimer un concours
+    {
         $user=$this->getDoctrine()->getRepository('AppBundle:Concours')->find($id);
 
         $em=$this->getDoctrine()->getManager();
