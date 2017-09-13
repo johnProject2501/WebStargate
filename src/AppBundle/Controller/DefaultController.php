@@ -166,8 +166,6 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
-
-
         if ($form->isSubmitted() && $form->isValid()){
             //Persister l'objet
 
@@ -178,8 +176,6 @@ class DefaultController extends Controller
 
             if (!empty($Alluser || $Alluseremail)){
 
-
-
                 return $this->redirectToRoute("inscriptionError.index",[
 
                 ]);
@@ -187,9 +183,6 @@ class DefaultController extends Controller
             else{
 
                 $em=$this->getDoctrine()->getManager();
-
-
-
 
                 $file = $user->getImage();
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -204,14 +197,10 @@ class DefaultController extends Controller
                 $em->persist($user);
                 $em->flush();
 
-
                 //rediriger vers la page home
                 return $this->redirectToRoute("homepage");
             }
         }
-
-
-
 
         return $this->render(":Inscription:inscriptionError.html.twig",
             [
