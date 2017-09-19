@@ -40,15 +40,19 @@ class JsonController extends Controller
      */
     public function jsonNewsAction()
     {
-        $categorias = $this->getDoctrine()
+        //requete SQL
+        $news1 = $this->getDoctrine()
             ->getRepository('AppBundle:News')
             ->findAll();
 
-        $categorias = $this->get('serializer')->serialize($categorias, 'json');
+        //mise en forme du format Json
+        $news2 = $this->get('serializer')->serialize($news1, 'json');
 
-        $response = new Response($categorias);
+        $response = new Response($news2);
 
         $response->headers->set('Content-Type', 'application/json');
+
+        //envoie des entité news en Json
         return $response;
     }
 
