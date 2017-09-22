@@ -3,9 +3,33 @@
 
 {% block body %}
 
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if app.session.flashBag.has('delete') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('delete') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if app.session.flashBag.has('concours') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('concours') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <div style="margin-top: 5%" class="container-fluid bg-3 text-center">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-xs-12">
                 {% if news != null %}
                     {% for News in news %}
                     <div class="col-sm-12">
@@ -22,7 +46,7 @@
 
 
 
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-xs-12">
 
                    {% for Concours in concour %}
                        {% if app.user %}

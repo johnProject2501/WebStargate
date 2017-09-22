@@ -136,6 +136,10 @@ class DefaultController extends Controller
                 $em->persist($user);
                 $em->flush();
 
+                $request->getSession()
+                    ->getFlashBag()
+                    ->add('success', 'Inscription réussie');
+
 
                 //rediriger vers la page home
                 return $this->redirectToRoute("homepage");
@@ -196,6 +200,10 @@ class DefaultController extends Controller
 
                 $em->persist($user);
                 $em->flush();
+
+                $request->getSession()
+                    ->getFlashBag()
+                    ->add('success', 'Inscription réussie');
 
                 //rediriger vers la page home
                 return $this->redirectToRoute("homepage");

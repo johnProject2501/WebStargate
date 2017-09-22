@@ -129,12 +129,16 @@ class CompteController extends Controller
     /**
      * @Route("/CompteDelete/{id}", name="Delete")
      */
-    public function DeleteUserAction($id){
+    public function DeleteUserAction(Request $request,$id){
         $user=$this->getDoctrine()->getRepository('AppBundle:User')->find($id);
 
         $em=$this->getDoctrine()->getManager();
         $em->remove($user);
         $em->flush();
+
+        $request->getSession()
+            ->getFlashBag()
+            ->add('delete', 'Supression du compte '.$username.' reussie');
 
         return $this->redirect($this->generateUrl('homepage'));
 

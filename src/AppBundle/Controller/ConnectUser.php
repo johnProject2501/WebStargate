@@ -39,7 +39,7 @@ class ConnectUser extends Controller
     /**
      * @Route("/InscriptionConcour/{id}/{idConcour}", name="InscriptionUserConcours")
      */
-    public function inscriptionConcoursAction(User $user,$idConcour)
+    public function inscriptionConcoursAction(User $user,$idConcour,Request $request)
     {
         $concours=$this->getDoctrine()->getRepository('AppBundle:Concours')->find($idConcour);
 
@@ -53,6 +53,12 @@ class ConnectUser extends Controller
 
         $em->persist($user);
         $em->flush();
+
+        $request->getSession()
+            ->getFlashBag()
+            ->add('concours', 'Inscription au concours '.$concours->getTitre().' reussie');
+
+
 
 
         return $this->redirectToRoute('homepage');

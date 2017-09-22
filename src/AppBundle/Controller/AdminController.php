@@ -104,16 +104,11 @@ class AdminController extends Controller
     /**
      * @Route("/ConcoursDetail/{id}", name="concoursDetail")
      */
-    public function DetailConcourAction(Concours $concours){
+    public function DetailConcourAction(Concours $concours)//permet de regarder le detail d'un concours
+    {
         $concours=$this->getDoctrine()->getRepository('AppBundle:Concours')->find($concours);
 
         $users=$concours->getUser();
-
-
-
-
-
-
 
         return $this->render(':Concours:Detail.html.twig',[
             'concour'=>$concours,
@@ -126,18 +121,15 @@ class AdminController extends Controller
     /**
      * @Route("/CreeUnConcour", name="CreateConcours")
      */
-    public  function CreateConcoursAction(Request $request){
+    public  function CreateConcoursAction(Request $request)//permet de crée un concours
+    {
         $concours=new Concours();
+        //crétation du formulaire
         $form=$this->createForm(ConcoursType::class,$concours);
-
-
         $form->handleRequest($request);
 
-
-
-
         $file = $concours->getFile();
-
+        //test et persistance du formulaire
         if ($form->isSubmitted() && $form->isValid() && $file!=null){
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
@@ -180,14 +172,9 @@ class AdminController extends Controller
      */
     public function SetCompteAction(Concours $concours, Request $request){
 
-
-
         $form=$this->createForm(ConcoursType::class,$concours);
 
-
         $form->handleRequest($request);
-
-
 
 
         $file = $concours->getFile();
