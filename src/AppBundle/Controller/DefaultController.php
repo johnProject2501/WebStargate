@@ -170,26 +170,26 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             //Persister l'objet
 
-            $Alluser=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
+            $Alluser = $this->getDoctrine()->getRepository('AppBundle:User')->findBy(
                 array('username' => $user->getUsernameCanonical()));
-            $Alluseremail=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(
+            $Alluseremail = $this->getDoctrine()->getRepository('AppBundle:User')->findBy(
                 array('email' => $user->getEmail()));
 
-            if (!empty($Alluser || $Alluseremail)){
+            if (!empty($Alluser || $Alluseremail)) {
 
-                return $this->redirectToRoute("inscriptionError.index",[
+                return $this->redirectToRoute("inscriptionError.index", [
 
                 ]);
             }
-            else{
+            else {
 
-                $em=$this->getDoctrine()->getManager();
+                $em = $this->getDoctrine()->getManager();
 
                 $file = $user->getImage();
-                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
                 $file->move(
                     $this->getParameter('imageuser_directory'),
                     $fileName

@@ -18,6 +18,7 @@ class SearchController extends Controller
     {
 
         $episode=new EpisodeSearch();
+
         $form=$this->createForm(EpisodeSearchType::class,$episode);
 
 
