@@ -53,9 +53,9 @@
                 <H3 style="text-align: center">Concours</H3>
                    {% for Concours in concour %}
                        {% if app.user %}
-                       <div class="col-sm-12">
+                       <div  class="col-sm-12 col-xs-12" style="margin-bottom: 5%">
                             <figure>
-                                <a href="{{ path('InscriptionConcours',{'id':Concours.id}) }}"><img src="../img/concours/{{Concours.file}}"></a>
+                                <a href="{{ path('InscriptionConcours',{'id':Concours.id}) }}"><img style="width: 333px; height: 93px" src="../img/concours/{{Concours.file}}"></a>
                             </figure>
                        </div>
                            {% else %}
