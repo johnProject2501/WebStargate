@@ -44,10 +44,7 @@ class CompteController extends Controller
 
         $form=$this->createForm(UpdateCompte::class,$user);
 
-
         $form->handleRequest($request);
-
-
 
 
         $file = $user->getImage();
@@ -55,8 +52,6 @@ class CompteController extends Controller
         if ($form->isSubmitted() && $form->isValid() && $file!=null){
             //Persister l'objet
             $em=$this->getDoctrine()->getManager();
-
-
 
             $file = $user->getImage();
 
@@ -96,7 +91,6 @@ class CompteController extends Controller
 
             $em->persist($user);
             $em->flush();
-
 
             $userTest=$this->getUser()->getRoles();
 

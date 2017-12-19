@@ -1,0 +1,27 @@
+[2017-09-19T09:19:02,986][INFO ][o.e.n.Node               ] [] initializing ...
+[2017-09-19T09:19:03,071][INFO ][o.e.e.NodeEnvironment    ] [w_6bV9o] using [1] data paths, mounts [[/ (/dev/disk1)]], net usable_space [121.7gb], net total_space [232.6gb], spins? [unknown], types [hfs]
+[2017-09-19T09:19:03,071][INFO ][o.e.e.NodeEnvironment    ] [w_6bV9o] heap size [1.9gb], compressed ordinary object pointers [true]
+[2017-09-19T09:19:03,096][INFO ][o.e.n.Node               ] node name [w_6bV9o] derived from node ID [w_6bV9orSiGBnAiO73nMrw]; set [node.name] to override
+[2017-09-19T09:19:03,096][INFO ][o.e.n.Node               ] version[5.5.2], pid[7564], build[b2f0c09/2017-08-14T12:33:14.154Z], OS[Mac OS X/10.12.6/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_131/25.131-b11]
+[2017-09-19T09:19:03,097][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Des.path.home=/Users/john2501/Desktop/elasticsearch-5.5.2 3]
+[2017-09-19T09:19:04,160][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [aggs-matrix-stats]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [ingest-common]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [lang-expression]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [lang-groovy]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [lang-mustache]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [lang-painless]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [parent-join]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [percolator]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [reindex]
+[2017-09-19T09:19:04,161][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [transport-netty3]
+[2017-09-19T09:19:04,162][INFO ][o.e.p.PluginsService     ] [w_6bV9o] loaded module [transport-netty4]
+[2017-09-19T09:19:04,162][INFO ][o.e.p.PluginsService     ] [w_6bV9o] no plugins loaded
+[2017-09-19T09:19:05,655][INFO ][o.e.d.DiscoveryModule    ] [w_6bV9o] using discovery type [zen]
+[2017-09-19T09:19:06,163][INFO ][o.e.n.Node               ] initialized
+[2017-09-19T09:19:06,163][INFO ][o.e.n.Node               ] [w_6bV9o] starting ...
+[2017-09-19T09:19:06,328][INFO ][o.e.t.TransportService   ] [w_6bV9o] publish_address {127.0.0.1:9300}, bound_addresses {[fe80::1]:9300}, {[::1]:9300}, {127.0.0.1:9300}
+[2017-09-19T09:19:09,388][INFO ][o.e.c.s.ClusterService   ] [w_6bV9o] new_master {w_6bV9o}{w_6bV9orSiGBnAiO73nMrw}{qkaDsZ_4Tei8PT1-vlpDWQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-elected-as-master ([0] nodes joined)
+[2017-09-19T09:19:09,403][INFO ][o.e.h.n.Netty4HttpServerTransport] [w_6bV9o] publish_address {127.0.0.1:9200}, bound_addresses {[fe80::1]:9200}, {[::1]:9200}, {127.0.0.1:9200}
+[2017-09-19T09:19:09,403][INFO ][o.e.n.Node               ] [w_6bV9o] started
+[2017-09-19T09:19:09,534][INFO ][o.e.g.GatewayService     ] [w_6bV9o] recovered [2] indices into cluster_state
+[2017-09-19T09:19:10,053][INFO ][o.e.c.r.a.AllocationService] [w_6bV9o] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[racine][2]] ...]).
